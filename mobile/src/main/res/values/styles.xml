@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Reactive" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primaryDark</item>
+        <item name="colorAccent">@color/accent</item>
+
+        <item name="actionBarStyle">@style/Theme.Reactive.Toolbar</item>
+        <item name="drawerArrowStyle">@style/Theme.Reactive.Drawer</item>
+    </style>
+
+    <style name="Theme.Reactive.Dark" parent="Theme.Reactive">
+        <item name="android:windowBackground">@color/primary</item>
+
+        <item name="colorControlNormal">@color/accent</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="colorControlHighlight">@android:color/white</item>
+        <item name="android:textColorHint">@color/accent</item>
+
+        <item name="colorButtonNormal">@color/primaryDark</item>
+        <item name="android:colorButtonNormal">@color/primaryDark</item>
+
+        <item name="android:editTextStyle">@style/Theme.Reactive.EditText.Light</item>
+    </style>
+
+    <style name="Theme.Reactive.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/accent</item>
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="Theme.Reactive.Drawer" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+        <item name="spinBars">false</item>
+    </style>
+
+    <style name="Theme.Reactive.Toolbar" parent="Widget.AppCompat.ActionBar.Solid">
+        <item name="searchViewStyle">@style/Theme.Reactive.Toolbar.SearchView</item>
+    </style>
+
+    <style name="Theme.Reactive.Toolbar.SearchView" parent="Widget.AppCompat.SearchView">
+    </style>
+
+    <style name="Theme.Reactive.EditText.Light" parent="Base.Widget.AppCompat.EditText">
+        <item name="colorControlNormal">@color/accent</item>
+        <item name="colorControlActivated">@color/accent</item>
+        <item name="colorControlHighlight">@color/accent</item>
+
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+</resources>
