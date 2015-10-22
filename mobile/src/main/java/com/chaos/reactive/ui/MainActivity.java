@@ -30,11 +30,6 @@ public class MainActivity extends ActionBarRecyclerActivity<Event, EventListAdap
     }
 
     @Override
-    protected int getMenuId() {
-        return R.menu.activity_main;
-    }
-
-    @Override
     public void toast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
