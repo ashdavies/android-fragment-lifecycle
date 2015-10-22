@@ -10,13 +10,6 @@ dependencies:
     - ~/.android
     - ~/android
 
-  pre:
-    - echo y | android update sdk --no-ui --all --filter android-23,build-tools-23.0.1,extra
-
-general:
-  artifacts:
-    - 'app/build/reports'
-
 test:
   override:
     - ./gradlew build -PdisablePreDex --stacktrace
@@ -24,4 +17,3 @@ test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/app/build/reports/tests/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
-    - pip install --user codecov codecov
