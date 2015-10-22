@@ -42,7 +42,8 @@
             android:paddingTop="@dimen/vertical_margin"
             android:paddingEnd="@dimen/horizontal_margin"
             android:paddingBottom="@dimen/vertical_margin"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
             <android.support.v7.widget.AppCompatButton
                 android:layout_width="wrap_content"
