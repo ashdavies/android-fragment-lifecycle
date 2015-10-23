@@ -10,13 +10,13 @@ import com.chaos.reactive.events.Event;
 import com.chaos.reactive.presenters.ActivityMainPresenter;
 import com.chaos.reactive.ui.adapters.BaseListAdapter;
 import com.chaos.reactive.ui.adapters.EventListAdapter;
-import com.chaos.reactive.ui.views.FragmentView;
+import com.chaos.reactive.ui.views.FragmentEventView;
 
 import java.util.List;
 
 import butterknife.OnClick;
 
-public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentView {
+public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentEventView {
 
     @NonNull
     @Override
@@ -82,5 +82,10 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
                 .beginTransaction()
                 .remove(fragment)
                 .commit();
+    }
+
+    @Override
+    public void registerEvent(Event event) {
+        add(event);
     }
 }
