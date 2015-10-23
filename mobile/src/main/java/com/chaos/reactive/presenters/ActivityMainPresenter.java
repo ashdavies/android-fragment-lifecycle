@@ -4,7 +4,6 @@ import android.support.v4.app.Fragment;
 
 import com.chaos.reactive.events.Event;
 import com.chaos.reactive.ui.fragments.DefaultFragment;
-import com.chaos.reactive.ui.views.BaseView;
 import com.chaos.reactive.ui.views.FragmentView;
 import com.chaos.reactive.utils.DefaultObserver;
 

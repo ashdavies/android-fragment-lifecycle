@@ -18,7 +18,4 @@
     <string name="action_add_fragment">Add Fragment</string>
     <string name="action_remove_fragment">Remove Fragment</string>
     <string name="action_forgot_password">Forgot password?</string>
-    <string name="action_next">Next</string>
-    <string name="action_login">Login</string>
-    <string name="action_signup">No account yet? Create one</string>
 </resources>

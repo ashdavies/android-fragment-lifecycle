@@ -7,7 +7,6 @@ import android.support.v7.widget.RecyclerView;
 import com.chaos.reactive.R;
 import com.chaos.reactive.presenters.ActivityPresenter;
 import com.chaos.reactive.ui.adapters.BaseListAdapter;
-import com.chaos.reactive.ui.views.FragmentView;
 import com.chaos.reactive.ui.views.ListingsView;
 
 import java.util.Collection;
