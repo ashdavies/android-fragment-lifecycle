@@ -4,12 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 
-import com.chaos.reactive.delegates.ActivityPresenterDelegate;
+import com.chaos.reactive.presenters.ActivityPresenter;
 
 import butterknife.ButterKnife;
 
-public abstract class BaseActivity extends AppCompatActivity {
-    private final ActivityPresenterDelegate delegate = createPresenter();
+public abstract class BaseActivity<P extends ActivityPresenter> extends AppCompatActivity {
+    protected final P presenter = createPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         int layoutId = getLayoutId();
         setContentView(layoutId);
 
-        delegate.onCreate();
+        presenter.onCreate();
     }
 
     @Override
@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    protected abstract ActivityPresenterDelegate createPresenter();
+    protected abstract P createPresenter();
 
     @LayoutRes
     protected abstract int getLayoutId();
@@ -35,18 +35,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        delegate.onStart();
+        presenter.onStart();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        delegate.onStop();
+        presenter.onStop();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        presenter.onDestroy();
+
         ButterKnife.unbind(this);
     }
 }

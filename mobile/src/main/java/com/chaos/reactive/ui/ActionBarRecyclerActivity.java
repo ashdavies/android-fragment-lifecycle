@@ -5,14 +5,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.chaos.reactive.R;
+import com.chaos.reactive.presenters.ActivityPresenter;
 import com.chaos.reactive.ui.adapters.BaseListAdapter;
+import com.chaos.reactive.ui.views.FragmentView;
 import com.chaos.reactive.ui.views.ListingsView;
 
 import java.util.Collection;
 
 import butterknife.Bind;
 
-public abstract class ActionBarRecyclerActivity<T, VH extends BaseListAdapter.ViewHolder> extends ActionBarActivity implements ListingsView<T> {
+public abstract class ActionBarRecyclerActivity<P extends ActivityPresenter, T, VH extends BaseListAdapter.ViewHolder> extends ActionBarActivity<P> implements ListingsView<T> {
     private final BaseListAdapter<T, VH> adapter = createAdapter();
 
     @Bind(R.id.list)

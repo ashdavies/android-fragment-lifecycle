@@ -1,6 +1,6 @@
 package com.chaos.reactive.presenters;
 
-public abstract class DefaultFragmentPresenter implements FragmentPresenter {
+public class DefaultFragmentPresenter implements FragmentPresenter {
 
     @Override
     public void onCreateView() {

@@ -1,4 +1,6 @@
-package com.chaos.reactive.presenters;
+package com.chaos.reactive;
+
+import com.chaos.reactive.presenters.ActivityPresenter;
 
 public class DefaultActivityPresenter implements ActivityPresenter {
 

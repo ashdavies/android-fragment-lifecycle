@@ -1,22 +1,27 @@
 package com.chaos.reactive.ui;
 
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.Toast;
 
 import com.chaos.reactive.R;
-import com.chaos.reactive.delegates.ActivityPresenterDelegate;
 import com.chaos.reactive.events.Event;
 import com.chaos.reactive.presenters.ActivityMainPresenter;
 import com.chaos.reactive.ui.adapters.BaseListAdapter;
 import com.chaos.reactive.ui.adapters.EventListAdapter;
-import com.chaos.reactive.ui.views.BaseView;
+import com.chaos.reactive.ui.views.FragmentView;
 
-public class MainActivity extends ActionBarRecyclerActivity<Event, EventListAdapter.ViewHolder> implements BaseView {
+import java.util.List;
+
+import butterknife.OnClick;
+
+public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentView {
 
     @NonNull
     @Override
-    protected ActivityPresenterDelegate createPresenter() {
-        return new ActivityPresenterDelegate(ActivityMainPresenter.create(this));
+    protected ActivityMainPresenter createPresenter() {
+        return ActivityMainPresenter.create(this);
     }
 
     @Override
@@ -37,5 +42,45 @@ public class MainActivity extends ActionBarRecyclerActivity<Event, EventListAdap
     @Override
     protected BaseListAdapter<Event, EventListAdapter.ViewHolder> createAdapter() {
         return new EventListAdapter();
+    }
+
+    @OnClick(R.id.add_fragment)
+    protected void onAddFragmentClick(View view) {
+        presenter.addFragment();
+    }
+
+    @OnClick(R.id.remove_fragment)
+    protected void onRemoveFragmentClick(View view) {
+        presenter.removeFragment();
+    }
+
+    @Override
+    public Fragment getFragment(String tag) {
+        return getSupportFragmentManager()
+                .findFragmentByTag(tag);
+    }
+
+    @Override
+    public List<Fragment> getFragments() {
+        return getSupportFragmentManager()
+                .getFragments();
+    }
+
+    @Override
+    public void addFragment(Fragment fragment) {
+        String tag = fragment.getClass().getName();
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.frame, fragment, tag)
+                .commit();
+    }
+
+    @Override
+    public void removeFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .remove(fragment)
+                .commit();
     }
 }

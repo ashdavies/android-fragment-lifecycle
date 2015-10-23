@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.widget.Toolbar;
 
-public abstract class ActionBarActivity extends BaseActivity {
+import com.chaos.reactive.presenters.ActivityPresenter;
+
+public abstract class ActionBarActivity<P extends ActivityPresenter> extends BaseActivity<P> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
