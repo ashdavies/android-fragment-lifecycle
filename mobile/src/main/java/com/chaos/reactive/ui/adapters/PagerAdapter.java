@@ -15,7 +15,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
     private final List<FragmentFactory> factories;
 
     public PagerAdapter(Context context, FragmentManager manager) {
-        this(context, manager, new ArrayList<>());
+        this(context, manager, new ArrayList<FragmentFactory>());
     }
 
     public PagerAdapter(Context context, FragmentManager manager, List<FragmentFactory> factories) {
