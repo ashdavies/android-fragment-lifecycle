@@ -2,7 +2,8 @@ package com.chaos.reactive.ui;
 
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.chaos.reactive.R;
@@ -13,8 +14,6 @@ import com.chaos.reactive.ui.adapters.EventListAdapter;
 import com.chaos.reactive.ui.views.FragmentEventView;
 
 import java.util.List;
-
-import butterknife.OnClick;
 
 public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentEventView {
 
@@ -44,14 +43,26 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
         return new EventListAdapter();
     }
 
-    @OnClick(R.id.add_fragment)
-    protected void onAddFragmentClick(View view) {
-        presenter.addFragment();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
-    @OnClick(R.id.remove_fragment)
-    protected void onRemoveFragmentClick(View view) {
-        presenter.removeFragment();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.add:
+                presenter.addFragment();
+                return true;
+
+            case R.id.remove:
+                presenter.removeFragment();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override

@@ -31,32 +31,7 @@
         <FrameLayout
             android:id="@+id/frame"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/horizontal_margin"
-            android:paddingTop="@dimen/vertical_margin"
-            android:paddingEnd="@dimen/horizontal_margin"
-            android:paddingBottom="@dimen/vertical_margin"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/add_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_add_fragment" />
-
-            <android.support.v7.widget.AppCompatButton
-                android:id="@+id/remove_fragment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/action_remove_fragment" />
-
-        </LinearLayout>
+            android:layout_height="300dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
