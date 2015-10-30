@@ -60,6 +60,10 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
                 presenter.removeFragment();
                 return true;
 
+            case R.id.clear:
+                clear();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
