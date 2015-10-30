@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/list_title_size"
-    android:orientation="horizontal"
-    android:gravity="center_vertical">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="vertical"
+    android:padding="@dimen/default_padding">
 
-    <ImageView
-        android:id="@+id/image"
-        android:contentDescription="@null"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/horizontal_margin"
-        android:layout_marginEnd="@dimen/horizontal_margin"
-        android:src="@drawable/ic_code_black"/>
-
-    <LinearLayout
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/name"
+        style="@style/Base.TextAppearance.AppCompat.Medium"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.75"
-        android:orientation="vertical">
+        android:textColor="@color/primaryText"
+        android:textSize="@dimen/text_subheading_size" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/primaryText"
-            android:textSize="@dimen/text_subheading_size"
-            style="@style/Base.TextAppearance.AppCompat.Medium"/>
+    <TextView
+        android:id="@+id/source"
+        style="@style/Base.TextAppearance.AppCompat.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/secondaryText"
+        android:textSize="@dimen/text_body_size" />
 
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/secondaryText"
-            android:textSize="@dimen/text_body_size"
-            android:maxLines="2"
-            android:ellipsize="end"
-            style="@style/Base.TextAppearance.AppCompat.Small"/>
-
-    </LinearLayout>
 </LinearLayout>

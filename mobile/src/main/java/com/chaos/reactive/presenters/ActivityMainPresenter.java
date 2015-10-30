@@ -45,7 +45,7 @@ public class ActivityMainPresenter extends DefaultObserver<Event> implements Act
         EventFragment fragment = new EventFragment();
         fragment.setView(view);
 
-        view.addFragment(new DefaultFragment());
+        view.addFragment(fragment);
     }
 
     public void removeFragment() {

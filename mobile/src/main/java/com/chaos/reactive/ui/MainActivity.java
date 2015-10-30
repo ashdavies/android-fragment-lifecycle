@@ -97,6 +97,6 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
 
     @Override
     public void registerEvent(Event event) {
-        add(event);
+        add(0, event);
     }
 }

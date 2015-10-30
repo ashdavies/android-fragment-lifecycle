@@ -27,6 +27,10 @@ public abstract class BaseListAdapter<T, VH extends BaseListAdapter.ViewHolder> 
         items.add(t);
     }
 
+    public void add(int location, T t) {
+        items.add(location, t);
+    }
+
     public void addAll(Collection<T> ts) {
         items.addAll(ts);
     }

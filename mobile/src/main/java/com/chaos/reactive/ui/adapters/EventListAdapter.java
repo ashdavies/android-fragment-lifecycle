@@ -28,11 +28,11 @@ public class EventListAdapter extends BaseListAdapter<Event, EventListAdapter.Vi
 
     public static class ViewHolder extends BaseListAdapter.ViewHolder<Event> {
 
-        @Bind(R.id.title)
-        protected TextView fullName;
+        @Bind(R.id.name)
+        protected TextView name;
 
-        @Bind(R.id.subtitle)
-        protected TextView description;
+        @Bind(R.id.source)
+        protected TextView source;
 
         public ViewHolder(Context context, View view) {
             super(context, view);
@@ -40,7 +40,8 @@ public class EventListAdapter extends BaseListAdapter<Event, EventListAdapter.Vi
 
         @Override
         public void bind(Event event) {
-
+            name.setText(event.getName());
+            source.setText(event.getSource());
         }
     }
 }

@@ -37,6 +37,12 @@ public abstract class ActionBarRecyclerActivity<P extends ActivityPresenter, T, 
     }
 
     @Override
+    public void add(int index, T t) {
+        adapter.add(index, t);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
     public void addAll(Collection<T> ts) {
         adapter.addAll(ts);
         adapter.notifyDataSetChanged();

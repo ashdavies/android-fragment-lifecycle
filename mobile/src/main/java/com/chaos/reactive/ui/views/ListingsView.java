@@ -10,6 +10,9 @@ public interface ListingsView<T> extends BaseView {
     void add(T item);
 
     @UiThread
+    void add(int index, T item);
+
+    @UiThread
     void addAll(Collection<T> items);
 
     @UiThread
