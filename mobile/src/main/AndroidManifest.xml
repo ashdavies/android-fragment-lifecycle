@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chaos.reactive">
+    package="com.chaos.reactive.fragments">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Reactive">
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".events.ui.MainActivity"
             android:label="@string/application"
             android:theme="@style/Theme.Reactive.Dark">
 

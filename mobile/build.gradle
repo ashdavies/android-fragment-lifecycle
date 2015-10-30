@@ -5,7 +5,7 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId 'com.chaos.reactive'
+        applicationId 'com.chaos.reactive.fragments'
         multiDexEnabled true
 
         minSdkVersion 21
