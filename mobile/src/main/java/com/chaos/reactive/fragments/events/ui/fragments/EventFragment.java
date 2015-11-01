@@ -26,14 +26,12 @@ public class EventFragment extends DefaultFragment {
     @Nullable
     private EventView view;
 
-    public EventFragment setName(@Nullable String name) {
+    public void setName(@Nullable String name) {
         this.name = name;
-        return this;
     }
 
-    public EventFragment setView(@Nullable EventView view) {
+    public void setView(@Nullable EventView view) {
         this.view = view;
-        return this;
     }
 
     private void registerEvent(String event) {

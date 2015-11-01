@@ -13,7 +13,7 @@ import com.chaos.reactive.fragments.events.presenters.FragmentPresenter;
 import butterknife.ButterKnife;
 
 public abstract class BaseFragment extends Fragment {
-    private FragmentPresenter presenter = createPresenter();
+    private final FragmentPresenter presenter = createPresenter();
 
     @Nullable
     @Override

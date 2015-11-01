@@ -1,6 +1,5 @@
 package com.chaos.reactive.fragments.events.ui.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,10 +14,8 @@ public class EventListAdapter extends BaseListAdapter<Event, EventListAdapter.Vi
 
     @Override
     public EventListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-
-        return new ViewHolder(context, inflater.inflate(R.layout.list_item, parent, false));
+        return new ViewHolder(inflater.inflate(R.layout.list_item, parent, false));
     }
 
     @Override
@@ -34,8 +31,8 @@ public class EventListAdapter extends BaseListAdapter<Event, EventListAdapter.Vi
         @Bind(R.id.source)
         protected TextView source;
 
-        public ViewHolder(Context context, View view) {
-            super(context, view);
+        public ViewHolder(View view) {
+            super(view);
         }
 
         @Override

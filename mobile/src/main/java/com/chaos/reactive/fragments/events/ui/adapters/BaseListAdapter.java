@@ -12,7 +12,7 @@ import java.util.List;
 import butterknife.ButterKnife;
 
 public abstract class BaseListAdapter<T, VH extends BaseListAdapter.ViewHolder> extends RecyclerView.Adapter<VH> {
-    private List<T> items = new ArrayList<>();
+    private final List<T> items = new ArrayList<>();
 
     @Override
     public int getItemCount() {
@@ -47,16 +47,9 @@ public abstract class BaseListAdapter<T, VH extends BaseListAdapter.ViewHolder> 
     }
 
     public abstract static class ViewHolder<T> extends RecyclerView.ViewHolder {
-        private Context context;
-
-        public ViewHolder(Context context, View view) {
+        public ViewHolder(View view) {
             super(view);
-            this.context = context;
             ButterKnife.bind(this, view);
-        }
-
-        protected Context getContext() {
-            return context;
         }
 
         @UiThread
