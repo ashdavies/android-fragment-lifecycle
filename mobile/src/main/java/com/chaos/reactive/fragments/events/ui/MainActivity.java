@@ -19,11 +19,12 @@ import com.chaos.reactive.fragments.events.ui.views.FragmentEventView;
 import java.util.List;
 
 public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements Provides<Context>, FragmentEventView {
+    private final String NAMES_DICTIONARY_FILE = "names.txt";
 
     @NonNull
     @Override
     protected ActivityMainPresenter createPresenter() {
-        DictionaryProvider provider = new DictionaryProvider(getApplicationContext());
+        DictionaryProvider provider = new DictionaryProvider(getApplicationContext(), NAMES_DICTIONARY_FILE);
         return ActivityMainPresenter.create(provider, this);
     }
 

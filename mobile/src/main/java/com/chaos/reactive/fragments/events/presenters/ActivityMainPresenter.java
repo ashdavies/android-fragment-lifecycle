@@ -57,7 +57,7 @@ public class ActivityMainPresenter extends DefaultObserver<Event> implements Act
     public void removeFragment() {
         List<Fragment> fragments = view.getFragments();
         if (fragments.size() > 0) {
-            view.removeFragment(fragments.get(0));
+            view.removeFragment(fragments.get(fragments.size() - 1));
         }
     }
 }

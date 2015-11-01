@@ -10,12 +10,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class DictionaryProvider implements Provides<Dictionary> {
-    private static final String DICTIONARY_FILE = "dictionary.txt";
-
     private final Context context;
+    private final String file;
 
-    public DictionaryProvider(Context context) {
+    public DictionaryProvider(Context context, String file) {
         this.context = context;
+        this.file = file;
     }
 
     @Override
@@ -24,7 +24,7 @@ public class DictionaryProvider implements Provides<Dictionary> {
 
         try {
             AssetManager assets = context.getAssets();
-            InputStreamReader reader = new InputStreamReader(assets.open(DICTIONARY_FILE));
+            InputStreamReader reader = new InputStreamReader(assets.open(file));
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             String word;
