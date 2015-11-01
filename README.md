@@ -16,3 +16,5 @@ The application is not being maintained and is provided as is for educational us
 - The application names each fragment using a names dictionary file  
 - Each event mentions the name of the fragment that called it  
 - Clear the event using the action bar clear button
+
+![device-2015-11-01-163936](https://cloud.githubusercontent.com/assets/1892070/10869831/507f6eb2-80bb-11e5-8452-357290a3ab46.png)
