@@ -9,11 +9,12 @@ import com.chaos.reactive.fragments.events.presenters.ActivityPresenter;
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity<P extends ActivityPresenter> extends AppCompatActivity {
-    protected final P presenter = createPresenter();
+    protected P presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        presenter = createPresenter();
 
         int layoutId = getLayoutId();
         setContentView(layoutId);

@@ -1,5 +1,6 @@
 package com.chaos.reactive.fragments.events.ui;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
@@ -9,18 +10,21 @@ import android.widget.Toast;
 import com.chaos.reactive.fragments.R;
 import com.chaos.reactive.fragments.events.Event;
 import com.chaos.reactive.fragments.events.presenters.ActivityMainPresenter;
+import com.chaos.reactive.fragments.events.providers.DictionaryProvider;
+import com.chaos.reactive.fragments.events.providers.Provides;
 import com.chaos.reactive.fragments.events.ui.adapters.BaseListAdapter;
 import com.chaos.reactive.fragments.events.ui.adapters.EventListAdapter;
 import com.chaos.reactive.fragments.events.ui.views.FragmentEventView;
 
 import java.util.List;
 
-public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentEventView {
+public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements Provides<Context>, FragmentEventView {
 
     @NonNull
     @Override
     protected ActivityMainPresenter createPresenter() {
-        return ActivityMainPresenter.create(this);
+        DictionaryProvider provider = new DictionaryProvider(getApplicationContext());
+        return ActivityMainPresenter.create(provider, this);
     }
 
     @Override
@@ -67,6 +71,11 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public Context getInstance() {
+        return getApplicationContext();
     }
 
     @Override

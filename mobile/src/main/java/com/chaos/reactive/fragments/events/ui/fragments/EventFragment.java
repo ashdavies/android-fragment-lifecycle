@@ -3,7 +3,6 @@ package com.chaos.reactive.fragments.events.ui.fragments;
 import android.app.Activity;
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,14 +17,14 @@ import butterknife.Bind;
 
 public class EventFragment extends DefaultFragment {
 
+    @Bind(R.id.title)
+    protected TextView title;
+
     @Nullable
     private String name;
 
     @Nullable
     private EventView view;
-
-    @Bind(R.id.title)
-    protected TextView title;
 
     public EventFragment setName(@Nullable String name) {
         this.name = name;
@@ -52,16 +51,6 @@ public class EventFragment extends DefaultFragment {
         registerEvent("onCreateView");
 
         return view;
-    }
-
-    @Override
-    protected void setBackgroundColor(@Nullable View view) {
-        if (view != null) {
-            int color = getRandomColor();
-
-            title.setText(String.valueOf(color));
-            view.setBackgroundColor(color);
-        }
     }
 
     @Override
