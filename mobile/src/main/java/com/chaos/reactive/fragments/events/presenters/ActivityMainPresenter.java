@@ -1,15 +1,11 @@
 package com.chaos.reactive.fragments.events.presenters;
 
-import android.support.v4.app.Fragment;
-
 import com.chaos.reactive.fragments.events.Event;
 import com.chaos.reactive.fragments.events.providers.Provides;
 import com.chaos.reactive.fragments.events.ui.fragments.EventFragment;
 import com.chaos.reactive.fragments.events.ui.views.FragmentEventView;
 import com.chaos.reactive.fragments.events.utils.DefaultObserver;
 import com.chaos.reactive.fragments.events.utils.Dictionary;
-
-import java.util.List;
 
 public class ActivityMainPresenter extends DefaultObserver<Event> implements ActivityPresenter {
     private final Dictionary dictionary;
@@ -54,10 +50,7 @@ public class ActivityMainPresenter extends DefaultObserver<Event> implements Act
         view.addFragment(fragment);
     }
 
-    public void removeFragment() {
-        List<Fragment> fragments = view.getFragments();
-        if (fragments.size() > 0) {
-            view.removeFragment(fragments.get(fragments.size() - 1));
-        }
+    public void popFragment() {
+        view.popFragment();
     }
 }

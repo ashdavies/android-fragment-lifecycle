@@ -1,6 +1,5 @@
 package com.chaos.reactive.fragments.events.ui;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.Menu;
@@ -11,14 +10,11 @@ import com.chaos.reactive.fragments.R;
 import com.chaos.reactive.fragments.events.Event;
 import com.chaos.reactive.fragments.events.presenters.ActivityMainPresenter;
 import com.chaos.reactive.fragments.events.providers.DictionaryProvider;
-import com.chaos.reactive.fragments.events.providers.Provides;
 import com.chaos.reactive.fragments.events.ui.adapters.BaseListAdapter;
 import com.chaos.reactive.fragments.events.ui.adapters.EventListAdapter;
 import com.chaos.reactive.fragments.events.ui.views.FragmentEventView;
 
-import java.util.List;
-
-public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements Provides<Context>, FragmentEventView {
+public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresenter, Event, EventListAdapter.ViewHolder> implements FragmentEventView {
     private final String NAMES_DICTIONARY_FILE = "names.txt";
 
     @NonNull
@@ -62,7 +58,7 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
                 return true;
 
             case R.id.remove:
-                presenter.removeFragment();
+                presenter.popFragment();
                 return true;
 
             case R.id.clear:
@@ -75,38 +71,20 @@ public class MainActivity extends ActionBarRecyclerActivity<ActivityMainPresente
     }
 
     @Override
-    public Context getInstance() {
-        return getApplicationContext();
-    }
-
-    @Override
-    public Fragment getFragment(String tag) {
-        return getSupportFragmentManager()
-                .findFragmentByTag(tag);
-    }
-
-    @Override
-    public List<Fragment> getFragments() {
-        return getSupportFragmentManager()
-                .getFragments();
-    }
-
-    @Override
     public void addFragment(Fragment fragment) {
         String tag = fragment.getClass().getName();
 
         getSupportFragmentManager()
                 .beginTransaction()
+                .addToBackStack(tag)
                 .add(R.id.frame, fragment, tag)
                 .commit();
     }
 
     @Override
-    public void removeFragment(Fragment fragment) {
+    public void popFragment() {
         getSupportFragmentManager()
-                .beginTransaction()
-                .remove(fragment)
-                .commit();
+                .popBackStack();
     }
 
     @Override

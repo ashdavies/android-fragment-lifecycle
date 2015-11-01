@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.chaos.reactive.fragments.R;
 import com.chaos.reactive.fragments.events.presenters.ActivityPresenter;
 import com.chaos.reactive.fragments.events.ui.adapters.BaseListAdapter;
+import com.chaos.reactive.fragments.events.ui.components.DividerItemDecoration;
 import com.chaos.reactive.fragments.events.ui.views.ListingsView;
 
 import java.util.Collection;
@@ -26,6 +27,7 @@ public abstract class ActionBarRecyclerActivity<P extends ActivityPresenter, T, 
         list.setAdapter(adapter);
         list.setHasFixedSize(true);
         list.setLayoutManager(getLayoutManager());
+        list.addItemDecoration(getItemDecoration());
     }
 
     protected abstract BaseListAdapter<T, VH> createAdapter();
@@ -56,5 +58,9 @@ public abstract class ActionBarRecyclerActivity<P extends ActivityPresenter, T, 
 
     protected RecyclerView.LayoutManager getLayoutManager() {
         return new LinearLayoutManager(this);
+    }
+
+    protected RecyclerView.ItemDecoration getItemDecoration() {
+        return new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
     }
 }
