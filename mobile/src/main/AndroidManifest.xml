@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Reactive">
 
         <activity
-            android:name=".events.ui.MainActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/application"
             android:theme="@style/Theme.Reactive.Dark">
 
